@@ -116,7 +116,14 @@ package ${package.ReqDto};
         }
     </#list>
 </#if>
-
+<#------------  对象拷贝到实体类 字段循环遍历  ---------->
+public ${entity} to${entity}(){
+${entity} ${entity?uncap_first} = new ${entity}();
+<#list table.fields as field>
+    ${entity?uncap_first}.set${field.capitalName}(this.${field.propertyName});
+</#list>
+return ${entity?uncap_first};
+}
 <#if entityColumnConstant>
     <#list table.fields as field>
         public static final String ${field.name?upper_case} = "${field.name}";

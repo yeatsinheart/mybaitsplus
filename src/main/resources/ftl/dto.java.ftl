@@ -13,7 +13,7 @@ package ${package.Dto};
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
 </#if>
-
+import ${package.Entity}.${entity};
 /**
 * <p>
     * ${table.comment!}
@@ -116,6 +116,14 @@ package ${package.Dto};
         }
     </#list>
 </#if>
+<#------------  对象拷贝到实体类 字段循环遍历  ---------->
+public ${entity} to${entity}(){
+${entity} ${entity?uncap_first} = new ${entity}();
+<#list table.fields as field>
+    ${entity?uncap_first}.set${field.capitalName}(this.${field.propertyName});
+</#list>
+return ${entity?uncap_first};
+}
 
 <#if entityColumnConstant>
     <#list table.fields as field>
