@@ -35,14 +35,17 @@ public class CodeGenerator {
     }
 
     public static String dbDriver = "com.mysql.cj.jdbc.Driver";
-    public static String[] tables = {"kk_user_money_flow"};//"kk_platform_info_log",
+    public static String[] tables = {
+            "f_tbl_info_activity_dailywages_agreement",
+            "f_tbl_info_activity_dailywages_detail",
+            "f_tbl_info_activity_dailywages_operate"};//"kk_platform_info_log",
     public static String codePackage = "game";
     public static String codeModule = "com";
 
     public static void main(String[] args) {
         //设置数据库
-        CodeGeneratorDatabase.setOnlineDB();
-        //CodeGeneratorDatabase.setOfflineDB();
+        //CodeGeneratorDatabase.setOnlineDB();
+        CodeGeneratorDatabase.setOfflineDB();
         // 代码生成器
         AutoGenerator autoGenerator = new AutoGenerator();
         // set freemarker engine
@@ -100,7 +103,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/java/" + codeModule+ "/" + codePackage + "/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "/src/main/java/" + codeModule + "/" + codePackage + "/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*cfg.setFileCreate(new IFileCreate() {
@@ -145,6 +148,7 @@ public class CodeGenerator {
         strategy.setSuperEntityColumns("id");
         //strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(packageConfig.getModuleName() + "_");
+        strategy.setTablePrefix("f_tbl_info_activity_");
         autoGenerator.setStrategy(strategy);
         autoGenerator.setTemplateEngine(new FreemarkerTemplateEngine());
 
