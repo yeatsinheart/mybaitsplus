@@ -10,8 +10,8 @@ public class CodeGeneratorDatabase {
     }
 
     public static void setOfflineDB() {
-        dbURL = "localhost:3306/global_3rd_db";
+        dbURL = "172.16.9.83:3306/max";
         dbUSER = "root";
-        dbPass = "mysql";//
+        dbPass = "h9HAFvuD3w#";//
     }
 }

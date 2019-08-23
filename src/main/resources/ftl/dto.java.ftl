@@ -1,5 +1,5 @@
 package ${package.Dto};
-
+import ${package.Entity}.${entity};
 <#list table.importPackages as pkg>
     import ${pkg};
 </#list>

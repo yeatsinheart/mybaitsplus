@@ -36,11 +36,10 @@ public class CodeGenerator {
 
     public static String dbDriver = "com.mysql.cj.jdbc.Driver";
     public static String[] tables = {
-            "f_tbl_info_activity_dailywages_agreement",
-            "f_tbl_info_activity_dailywages_detail",
-            "f_tbl_info_activity_dailywages_operate"};//"kk_platform_info_log",
-    public static String codePackage = "game";
-    public static String codeModule = "com";
+            "payment", "payment_bank_history", "payment_channel", "payment_merchant", "payment_order", "payment_order_bank_detail", "payment_support_bank"
+    };//"kk_platform_info_log",
+    public static String codePackage = "system";
+    public static String codeModule = "com.max";
 
     public static void main(String[] args) {
         //设置数据库
